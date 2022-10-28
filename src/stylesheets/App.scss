@@ -1,6 +1,11 @@
+header, main{
+    min-width: 500px;
+    max-width: 1920px;
+    margin: 0 auto;
+
+}
 
 header {
-    min-width: 500px;
     border-bottom: 2px solid gray;
   nav {
     // border: 2px solid gray;
@@ -25,33 +30,14 @@ header {
 }
 
 main {
-     min-width: 500px;
-     .def-card{
+    .w{
         width: calc(90%);
-        margin: 0 auto 70px auto;
-        transition: padding 2s, font-size 2s;
-        .partOfSpeech{
-            
-            font-size: 30px;
-            font-weight: 600;
+        margin: 0 auto;
+        .p-of-s{
+            font-size: 40px;
+            padding: 0 auto 15px auto;
+            border-bottom: 2px solid black;
         }
-       
-
-        .example{
-            font-weight: 600;
-            font-size: 20px;
-        }
-
-     }
-      .def-card:hover{
-            font-size: 30px;
-            padding: 20px;
-            border: 2px solid lightblue;
-        }
-     .noSuchWord{
-        font-size: 50px;
-        text-align: center;
-        padding: 50px;
-        // border: 3px solid red;
-     }
+    }
+    
 }
