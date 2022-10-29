@@ -1,3 +1,5 @@
+@import url(../../meaning//stylesheets/Meaning.scss);
+
 header, main{
     min-width: 500px;
     max-width: 1920px;
@@ -11,7 +13,7 @@ header {
     // border: 2px solid gray;
     padding: 15px;
     .word{
-        // border: 5px solid rgb(255, 1, 1);
+        transition: background 2s, position 2s 5s;
         display: flex ;
         flex-direction: column;
         width: calc(90%);
@@ -26,6 +28,14 @@ header {
         }
        
     }
+      .word.fix{
+        position: fixed;
+        top: 0;
+        // background: rgba(0, 0, 0, 0.274);
+        label{
+            display: none;
+        }
+    }
   }
 }
 
@@ -33,11 +43,7 @@ main {
     .w{
         width: calc(90%);
         margin: 0 auto;
-        .p-of-s{
-            font-size: 40px;
-            padding: 0 auto 15px auto;
-            border-bottom: 2px solid black;
-        }
+       
     }
-    
 }
+  

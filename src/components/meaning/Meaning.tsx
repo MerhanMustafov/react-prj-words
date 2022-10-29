@@ -1,5 +1,6 @@
-import { Definitions } from '../../interface/Data'
-import { definition } from '../functions/Functions'
+import { Definitions } from './interfaces/Data'
+import { definition } from './functions/Functions'
+
 
 interface Props {
   definitions: Definitions
@@ -7,21 +8,23 @@ interface Props {
 }
 
 function Meaning(props: Props) {
+    let key = 100
   const { definitions, partOfSpeech } = props
-  console.log(definitions, partOfSpeech, 'MEANInG')
 
   let defs: string[] | undefined = definition(partOfSpeech, definitions)
 
   return (
-    <div className={partOfSpeech}>
+    
+    <div className={`${partOfSpeech} meaning`}>
       {
       defs && defs.length > 0 ? (
         <span className="p-of-s"> {partOfSpeech}</span>
       ) : null
       }
 
-      {defs && defs.map((d: any) => <p>{d}</p>)}
+      {defs && defs.map((d: any) => <p key={key++}>{d}</p>)}
     </div>
+
   )
 }
 
