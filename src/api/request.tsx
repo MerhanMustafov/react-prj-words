@@ -3,7 +3,6 @@ const baseUrl = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 
 
 export async function getMeaning(word: string){
-        console.log(word)
     const url = baseUrl + word
     try{
         const response = await fetch(url)

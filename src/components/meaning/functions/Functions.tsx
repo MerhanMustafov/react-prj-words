@@ -24,3 +24,28 @@ export function definition(p: string, definitions: Definitions){
         }
 
     }
+export function example(p: string, definitions: Definitions){
+
+        if(p == 'noun'.trim()){
+            return definitions.noun.ex
+        }
+        else if(p == 'verb'.trim()){
+            return definitions.verb.ex
+        }
+        else if(p == 'adverb'.trim()){
+            return definitions.adverb.ex
+        }
+        else if(p == 'adjective'.trim()){
+            return definitions.adjective.ex
+        }
+        else if(p == 'preposition'.trim()){
+            return definitions.preposition.ex
+        }
+        else if(p == 'conjunction'.trim()){
+            return definitions.conjunction.ex
+        }
+        else if(p == 'interjection'.trim()){
+            return definitions.interjection.ex
+        }
+
+    }

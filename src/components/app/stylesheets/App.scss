@@ -1,5 +1,13 @@
 @import url(../../meaning//stylesheets/Meaning.scss);
 
+
+ *::selection {
+    background: #ffb7b7; /* WebKit/Blink Browsers */
+  }
+  *::-moz-selection {
+    background: #ffb7b7; /* Gecko Browsers */
+  }
+
 header, main{
     min-width: 500px;
     max-width: 1920px;
@@ -13,10 +21,10 @@ header {
     // border: 2px solid gray;
     padding: 15px;
     .word{
-        transition: background 2s, position 2s 5s;
+        transition: background 1s, position 2s 5s;
         display: flex ;
         flex-direction: column;
-        width: calc(90%);
+        width: calc(93% - 45px);
         margin: 0 auto;
         label {
             font-size: 40px;
@@ -30,8 +38,12 @@ header {
     }
       .word.fix{
         position: fixed;
-        top: 0;
-        // background: rgba(0, 0, 0, 0.274);
+        top: 0px;
+        padding: 5px 25px 5px 25px ;
+        background: rgb(255, 255, 255);
+        // border-top: 50px solid rgba(0, 0, 0, 0.699);
+        // border-bottom: 2px solid gray;
+        // width: 95%;
         label{
             display: none;
         }
@@ -47,3 +59,4 @@ main {
     }
 }
   
+

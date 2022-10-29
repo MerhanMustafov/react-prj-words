@@ -1,5 +1,9 @@
-.meaning{
-    
+.p-of-s-w{
+
+    display: flex;
+    flex-direction:  column;
+    gap: 35px;
+    margin: 10px 0 10px 0 ;
     .p-of-s {
     // color: blue;
     display: inline-block; 
@@ -14,4 +18,31 @@
     }
 
 }
+    
 
+
+.meaning-wrapper{
+    padding: 20px;
+    border-top: 3px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    background: rgb(240, 240, 245);
+    h3{
+        span{
+            font-size: 22px;
+            color: black;
+            font-weight: 600;
+        }
+            font-size: 35px;
+        color: rgb(0, 0, 0);
+    }
+    p{
+        span{
+            font-size: 15px;
+            color: black;
+            font-weight: 600;
+        }
+        color: blue;
+        letter-spacing: 1px;
+    }
+}
