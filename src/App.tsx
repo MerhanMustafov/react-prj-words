@@ -3,6 +3,13 @@ import { useState, useEffect } from 'react'
 import './stylesheets/App.scss'
 import { getMeaning } from './api/request'
 
+// interface imports
+import {Definitions} from './interface/Data'
+
+// COMPONENT imports
+import {Meaning} from './components/meaning/Meaning'
+
+
 
 function App() {
   let key: number = 1
@@ -13,7 +20,10 @@ function App() {
   const [error, setError] = useState('')
 
   const [definitions, setDefinitions] = useState<Definitions>()
-  console.log(data)
+  if(definitions){
+    const xx = Object.keys(definitions).map(x => x !== 'adverb' ? x : null)
+
+  }
 
   async function request(e: React.KeyboardEvent) {
     const o: Definitions = {
@@ -93,89 +103,11 @@ function App() {
       {/* onScroll={(e) => scroll(e)} */}
       <main >
         <div className='w'>
-        {definitions && definitions.noun.d?.length > 0
-            ? <div className="noun">
-            <span className='p-of-s'> Noun</span>
-            {
-            definitions.noun.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.verb.d?.length > 0
-            ? <div className="verb">
-                <span className='p-of-s'> Verb</span>
-            
-            {
-            definitions.verb.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.adjective.d?.length > 0
-            ? <div className="adjective">
-                <span className='p-of-s'> Adjective</span>
-            
-            {
-            definitions.adjective.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.adverb.d?.length > 0
-            ? <div className="adverb">
-                <span className='p-of-s'> Adverb</span>
-            
-            {
-            definitions.adverb.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.preposition.d?.length > 0
-            ? <div className="preposition">
-                <span className='p-of-s'> Preposition</span>
-            
-            {
-            definitions.preposition.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.conjunction.d?.length > 0
-            ? <div className="conjunction">
-                <span className='p-of-s'> Conjunction</span>
-            
-            {
-            definitions.conjunction.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
-        {definitions && definitions.interjection.d?.length > 0
-            ? <div className="interjection">
-                <span className='p-of-s'> Interjection</span>
-            
-            {
-            definitions.interjection.d.map(d => <p>{d}</p> )
-            }
-            </div>
-            :null
-            
-
-        }
+        {
+        definitions &&  
+        Object.keys(definitions)
+        .map(x => <Meaning partOfSpeech={x} definitions={definitions}></Meaning>)}
+       
         </div>
         
       </main>
@@ -187,12 +119,14 @@ export default App
 
 
 
-interface Definitions {
-  noun: {d: string[], m: string[], s: string[], a: string[], ex: string[]}
-  verb: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  adjective: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  adverb: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  preposition: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  conjunction: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  interjection: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-}
+// {definitions && definitions.noun.d?.length > 0
+// ? <div className="noun">
+// <span className='p-of-s'> Noun</span>
+// {
+// definitions.noun.d.map(d => <p>{d}</p> )
+// }
+// </div>
+// :null
+
+
+// }
