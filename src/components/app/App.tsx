@@ -45,24 +45,45 @@ function App() {
               def.definitions.forEach((d: any) => {
                 if (def.partOfSpeech === 'noun'.trim()) {
                   o.noun.d.push(d.definition)
+                  if(d.example){
+                    o.noun.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'verb'.trim()) {
                   o.verb.d.push(d.definition)
+                  if(d.example){
+                    o.verb.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'adjective'.trim()) {
                   o.adjective.d.push(d.definition)
+                  if(d.example){
+                    o.adjective.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'adverb'.trim()) {
                   o.adverb.d.push(d.definition)
+                  if(d.example){
+                    o.adverb.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'preposition'.trim()) {
                   o.preposition.d.push(d.definition)
+                  if(d.example){
+                    o.preposition.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'conjunction'.trim()) {
                   o.conjunction.d.push(d.definition)
+                  if(d.example){
+                    o.conjunction.ex!.push(d.example)
+                  }
                 }
                 if (def.partOfSpeech.trim() === 'interjection'.trim()) {
                   o.interjection.d.push(d.definition)
+                  if(d.example){
+                    o.interjection.ex!.push(d.example)
+                  }
                 }
               })
             })
