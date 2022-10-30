@@ -28,6 +28,7 @@ function App() {
   async function request(e: string) {
     const o: Definitions = {
       noun: { d: [], m: [], s: [], a: [], ex: [] },
+      pronoun: { d: [], m: [], s: [], a: [], ex: [] },
       verb: { d: [], m: [], s: [], a: [], ex: [] },
       adjective: { d: [], m: [], s: [], a: [], ex: [] },
       adverb: { d: [], m: [], s: [], a: [], ex: [] },
@@ -47,6 +48,12 @@ function App() {
                   o.noun.d.push(d.definition)
                   if(d.example){
                     o.noun.ex!.push(d.example)
+                  }
+                }
+                if (def.partOfSpeech === 'pronoun'.trim()) {
+                  o.pronoun.d.push(d.definition)
+                  if(d.example){
+                    o.pronoun.ex!.push(d.example)
                   }
                 }
                 if (def.partOfSpeech.trim() === 'verb'.trim()) {
@@ -89,9 +96,10 @@ function App() {
             })
           })
           setDefinitions(o)
+          setError('')
         } catch (err) {
           setError('There is no such word !')
-          setData([])
+          setDefinitions(undefined)
         }
       }
     }
@@ -122,16 +130,22 @@ function x(e: React.KeyboardEvent){
                 onKeyDown={(e) => x(e)}
                 />
                 <i className="fa-sharp fa-solid fa-magnifying-glass" onClick={() => request('click')}></i>
+                {error.length > 0 ? 
+                <div className="error">There is no such word !</div>
+                : null
+                }
+
             </div>
           </div>
         </nav>
       </header>
       <main>
         <div className="w">
-          {definitions &&
+          {definitions !== undefined ?
             Object.keys(definitions).map((x) => (
-              <Meaning key={key++} partOfSpeech={x} definitions={definitions}></Meaning>
-            ))}
+              <Meaning key={key++} partOfSpeech={x} definitions={definitions} word={word}></Meaning>
+            )) : null
+            }
         </div>
       </main>
     </div>

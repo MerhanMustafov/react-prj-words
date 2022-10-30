@@ -3,25 +3,29 @@ import { definition, example } from './functions/Functions'
 
 
 interface Props {
-  definitions: Definitions
-  partOfSpeech: string
+  definitions: Definitions,
+  partOfSpeech: string,
+  word: string
 }
 
 function Meaning(props: Props) {
     let key = 100
     let key_two = 200
-  const { definitions, partOfSpeech } = props
+  const { definitions, partOfSpeech, word } = props
 
   let defs: string[] | undefined = definition(partOfSpeech, definitions)
   let exs: string[] | undefined = example(partOfSpeech, definitions)
 
-
   return (
-    
+    <>
+    {defs && defs.length > 0 
+    ?
+
     <div className={`${partOfSpeech} p-of-s-w`}>
       {
       defs && defs.length > 0 ? (
-        <span className="p-of-s"> {partOfSpeech}</span>
+        <span className="p-of-s"> {`${partOfSpeech}`} [<span className="p-of-s-word" >{word}</span>]</span>
+        
       ) : null
       }
 
@@ -36,6 +40,12 @@ function Meaning(props: Props) {
       )
       }
     </div>
+    : null
+      
+    
+    }
+    </>
+    
 
   )
 }

@@ -1,20 +1,25 @@
 .p-of-s-w{
     
-    display: flex;
-    flex-direction:  column;
-    gap: 35px;
-    margin: 10px 0 10px 0 ;
+    // display: flex;
+    // flex-direction:  column;
+    // gap: 35px;
+    margin: 50px 0 10px 0 ;
     .p-of-s {
      
         color: rgb(255, 255, 255);
-
     // color: blue;
     display: inline-block; 
-    font-size: 40px;
+    font-size: 45px;
     width: 90%;
-    padding: 25px 0 15px 0;
+    padding: 2px 0 5px 0;
     text-transform: capitalize;
-    border-bottom: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    // margin: 0 auto;
+    background: rgba(46, 46, 46, 0.555);
+    }
+    .p-of-s-word{
+        color: rgb(255, 0, 255);
+        font-size: 45px;
     }
     p{
         font-size: 22px;
@@ -25,8 +30,9 @@
 
 
 .meaning-wrapper{
+    margin: 10px 0 10px 0;
       
-    padding: 20px;
+    padding: 0px 15px 0 15px;
     border-top: 3px solid rgba(0, 0, 0, 0.3);
     border-bottom: 3px solid rgba(0, 0, 0, 0.3);
     border-radius: 50px;

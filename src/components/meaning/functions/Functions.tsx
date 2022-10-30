@@ -4,6 +4,9 @@ export function definition(p: string, definitions: Definitions){
         if(p == 'noun'.trim()){
             return definitions.noun.d
         }
+        if(p == 'pronoun'.trim()){
+            return definitions.pronoun.d
+        }
         else if(p == 'verb'.trim()){
             return definitions.verb.d
         }
