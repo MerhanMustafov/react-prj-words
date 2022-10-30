@@ -13,13 +13,16 @@ import {navInputOnScroll} from './functions/Functions'
 
 // COMPONENT imports
 import { Meaning } from '../meaning/Meaning'
+import {Spinner} from '../Spinner/Spinner'
 
 function App() {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
   let key: number = 1
-  const [word, setWord] = useState('')
-  const [data, setData] = useState([])
+  const [word, setWord] = useState<string>('')
+  const [wordSecondary, setWordSecondary] = useState<string>('')
+  const [loading, setLoading] = useState<boolean>(false)
+//   const [data, setData] = useState([])
   const [error, setError] = useState('')
 
   const [definitions, setDefinitions] = useState<Definitions>()
@@ -39,6 +42,7 @@ function App() {
     if (e === 'click'.trim() || e === 'enter'.trim() ) {
     //   e.preventDefault()
       if (word.length > 0) {
+        setLoading(true)
         try {
           const res = await getMeaning(word)
           res.forEach((obj: any) => {
@@ -97,9 +101,18 @@ function App() {
           })
           setDefinitions(o)
           setError('')
+          setWordSecondary(word)
+          setTimeout(() => {
+            setLoading(false)
+
+          }, 1000)
         } catch (err) {
           setError('There is no such word !')
           setDefinitions(undefined)
+            setTimeout(() => {
+            setLoading(false)
+
+          }, 1000)
         }
       }
     }
@@ -130,7 +143,7 @@ function x(e: React.KeyboardEvent){
                 onKeyDown={(e) => x(e)}
                 />
                 <i className="fa-sharp fa-solid fa-magnifying-glass" onClick={() => request('click')}></i>
-                {error.length > 0 ? 
+                {loading === false && error.length > 0 ? 
                 <div className="error">There is no such word !</div>
                 : null
                 }
@@ -140,13 +153,19 @@ function x(e: React.KeyboardEvent){
         </nav>
       </header>
       <main>
+        {loading ? 
+        <Spinner></Spinner>
+        : 
+
         <div className="w">
           {definitions !== undefined ?
             Object.keys(definitions).map((x) => (
-              <Meaning key={key++} partOfSpeech={x} definitions={definitions} word={word}></Meaning>
+              <Meaning key={key++} partOfSpeech={x} definitions={definitions} word={wordSecondary}></Meaning>
             )) : null
             }
         </div>
+
+        }
       </main>
     </div>
   )
