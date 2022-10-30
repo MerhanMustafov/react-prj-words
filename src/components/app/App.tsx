@@ -25,7 +25,7 @@ function App() {
   const [definitions, setDefinitions] = useState<Definitions>()
 
 
-  async function request(e: React.KeyboardEvent) {
+  async function request(e: string) {
     const o: Definitions = {
       noun: { d: [], m: [], s: [], a: [], ex: [] },
       verb: { d: [], m: [], s: [], a: [], ex: [] },
@@ -35,8 +35,8 @@ function App() {
       conjunction: { d: [], m: [], s: [], a: [], ex: [] },
       interjection: { d: [], m: [], s: [], a: [], ex: [] },
     }
-    if (e.code === 'Enter') {
-      e.preventDefault()
+    if (e === 'click'.trim() || e === 'enter'.trim() ) {
+    //   e.preventDefault()
       if (word.length > 0) {
         try {
           const res = await getMeaning(word)
@@ -97,6 +97,12 @@ function App() {
     }
   }
 
+
+function x(e: React.KeyboardEvent){
+    if(e.code ==='Enter'){
+        request('enter')
+    }
+}
   
 
   return (
@@ -104,14 +110,19 @@ function App() {
       <header>
         <nav>
           <div className="word">
+
             <label htmlFor="wordInput">Word</label>
-            <input
-              type="text"
-              id="wordInput"
-              placeholder="ex: sky"
-              onChange={(e) => setWord(e.target.value)}
-              onKeyDown={(e) => request(e)}
-            />
+            <div className="i-w">
+
+                <input
+                type="text"
+                id="wordInput"
+                placeholder="ex: sky"
+                onChange={(e) => setWord(e.target.value)}
+                onKeyDown={(e) => x(e)}
+                />
+                <i className="fa-sharp fa-solid fa-magnifying-glass" onClick={() => request('click')}></i>
+            </div>
           </div>
         </nav>
       </header>
