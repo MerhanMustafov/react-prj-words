@@ -6,6 +6,7 @@ import { getMeaning } from '../../api/request'
 
 // interface imports
 import { Definitions } from '../meaning/interfaces/Data'
+import {ImageData} from '../meaning/interfaces/Image'
 
 // function imports
 import { navInputOnScroll } from './functions/Functions'
@@ -26,6 +27,8 @@ function App() {
 
   const [definitions, setDefinitions] = useState<Definitions>()
   const [partOfSpeech, setPartOfSpeech] = useState<string[]>([])
+
+  const [images, setImages] = useState<ImageData[]>([])
 
   async function request(e: string) {
     const o: Definitions = {
@@ -127,6 +130,7 @@ function App() {
           setDefinitions(o)
           setError('')
           setWordSecondary(word)
+          setImages([])
           setTimeout(() => {
             setLoading(false)
           }, 1000)
@@ -134,6 +138,7 @@ function App() {
           setError('There is no such word !')
           setPartOfSpeech([])
           setDefinitions(undefined)
+          setImages([])
           setTimeout(() => {
             setLoading(false)
           }, 1000)
@@ -186,6 +191,8 @@ function App() {
                     partOfSpeech={x}
                     definitions={definitions}
                     word={wordSecondary}
+                    images={images}
+                    setImages={setImages}
                   ></Meaning>
                 ))
               : null}
