@@ -1,7 +1,8 @@
-@import url(./reset.scss);
+
 @import url(./components/app/stylesheets/App.scss);
 body {
-  margin: 0;
+  margin: 0px auto;
+//   max-width: 100vw;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

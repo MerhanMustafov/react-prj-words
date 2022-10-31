@@ -1,68 +1,61 @@
-.p-of-s-w{
-    display: flex;
-    flex-direction: column;
-    width: auto; 
-    border: 2px solid rgb(255, 255, 255);
-    .p-of-s {
-     
-        color: rgb(255, 255, 255);
-    display: inline-block; 
+.p-of-s-w {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+//   border: 2px solid rgb(255, 255, 255);
+  .p-of-s {
+    color: rgb(255, 255, 255);
+    display: inline-block;
     font-size: 45px;
     width: auto;
     padding: 2px 0 5px 0;
     text-transform: capitalize;
-    // border: 2px solid rgb(255, 255, 255);
-    // margin: 0 auto;
     background: rgba(46, 46, 46, 0.555);
-    }
-    
-    p{
-        font-size: 22px;
-    }
+  }
 
+  p {
+    font-size: 22px;
+  }
 }
-    
 
+.meaning-wrapper {
+  margin: 10px 0 10px 0;
+  padding: 15px 25px;
+  border-radius: 50px;
+  // border: 5px solid red;
+  background: rgba(240, 240, 245, 1);
+  margin: 10px 0 70px 0;
+  .p-of-s-word {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(126, 0, 126);
+    font-size: 30px;
+    font-weight: 600;
+  }
+  h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    // border: 2px solid red;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    span {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 22px;
+      color: black;
+      font-weight: 600;
+    }
+  }
+  p {
+    //  border: 2px solid  red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0, 0, 172);
+      font-size: 17px;
+    letter-spacing: 1px;
+    span {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+      color: black;
+      font-weight: 600;
+    }
 
-.meaning-wrapper{
-    margin: 10px 0 10px 0;
-    // padding: 10px 35px 10px 25px;
-    padding: 50px;
-    // padding: 10px 25px 10px 25px;
-    // border-top: 3px solid rgba(0, 0, 0, 0.3);
-    // border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-    // border-radius: 50px;
-    // background: rgb(240, 240, 245);
-    border: 5px solid red;
-    // width: 80%;
-    background: rgba(240, 240, 245, 0.7);
-    .p-of-s-word{
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: rgb(126, 0, 126);
-        font-size: 30px;
-    }
-    h3{
-        border: 2px solid  red;
-        // width: 80%;
-        color: rgba(255, 255, 255, 0.7);
-        span{
-            font-size: 22px;
-            color: black;
-            font-weight: 600;
-        }
-            font-size: 35px;
-        color: rgb(0, 0, 0);
-    }
-    p{
-         border: 2px solid  red;
-        // width: 80%;
-        span{
-            font-size: 15px;
-            color: black;
-            font-weight: 600;
-        }
-        color: blue;
-        letter-spacing: 1px;
-    }
+  }
 }

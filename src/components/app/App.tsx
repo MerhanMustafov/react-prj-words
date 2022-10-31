@@ -13,16 +13,15 @@ import { navInputOnScroll } from './functions/Functions'
 // COMPONENT imports
 import { Meaning } from '../meaning/Meaning'
 import { Spinner } from '../Spinner/Spinner'
+import { PartOfSpeechNav } from '../Nav/PartOfSpeechNav/PartOfSpeechNav'
 
 function App() {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
   let key: number = 1
-  let key_two: number = 100
   const [word, setWord] = useState<string>('')
   const [wordSecondary, setWordSecondary] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
-  //   const [data, setData] = useState([])
   const [error, setError] = useState('')
 
   const [definitions, setDefinitions] = useState<Definitions>()
@@ -133,6 +132,7 @@ function App() {
           }, 1000)
         } catch (err) {
           setError('There is no such word !')
+          setPartOfSpeech([])
           setDefinitions(undefined)
           setTimeout(() => {
             setLoading(false)
@@ -142,55 +142,26 @@ function App() {
     }
   }
 
-  function x(e: React.KeyboardEvent) {
+  function requestOnEnter(e: React.KeyboardEvent) {
     if (e.code === 'Enter') {
       request('enter')
     }
   }
 
-    function horizontalScroll(e: React.WheelEvent){
-        // const event = e as HTMLElement
-        if(e.deltaY === 100){
-            // +
-            (e.target as HTMLElement).scrollLeft += 5;
-        }else{
-            // -
-            (e.target as HTMLElement).scrollLeft -= 5;
-        }
-    // (e.target as HTMLElement).scrollLeft += 5;
-    //     console.log((e))
-    }
-
-
-
   return (
     <div className="App">
-        
       <header>
         <nav>
           <div className="word">
             <label htmlFor="wordInput">Word</label>
             <div className="i-w">
-                <div onWheel={(e) => horizontalScroll(e)} className="p-of-s-nav-w">
-                {partOfSpeech.length > 0
-                  ? partOfSpeech.map((pofs) => (
-                      <p
-                        onClick={(e) => scrollToTheElement(e, pofs)}
-                        key={key_two++}
-                        className="ppp"
-                      >
-                        {pofs}
-                      </p>
-                    ))
-                  : null}
-              </div>
-                
+              <PartOfSpeechNav partOfSpeech={partOfSpeech}></PartOfSpeechNav>
               <input
                 type="text"
                 id="wordInput"
                 placeholder="ex: sky"
                 onChange={(e) => setWord(e.target.value)}
-                onKeyDown={(e) => x(e)}
+                onKeyDown={(e) => requestOnEnter(e)}
               />
               <i
                 className="fa-sharp fa-solid fa-magnifying-glass"
@@ -199,22 +170,15 @@ function App() {
               {loading === false && error.length > 0 ? (
                 <div className="error">There is no such word !</div>
               ) : null}
-
-              
             </div>
           </div>
         </nav>
       </header>
       <main>
-        
         {loading ? (
           <Spinner></Spinner>
         ) : (
           <div className="w">
-            {/* <> */}
-            
-            
-
             {definitions !== undefined
               ? Object.keys(definitions).map((x) => (
                   <Meaning
@@ -225,7 +189,6 @@ function App() {
                   ></Meaning>
                 ))
               : null}
-            {/* </> */}
           </div>
         )}
       </main>
@@ -234,17 +197,3 @@ function App() {
 }
 
 export default App
-
-console.log([window])
-console.log([document.querySelector(`.verb`)])
-function scrollToTheElement(e: React.MouseEvent<HTMLElement>, partOfSpeech: string) {
-    // this is the element to scroll to
-    const el = document.querySelector(`.${partOfSpeech}`) as HTMLElement;
-    // header element
-    const header = document.querySelector('header') as HTMLElement
-    // the height of the whole header + 50
-    const hheight = header.clientHeight +20
-    // scroll to minus the height of the whole header
-    window.scroll(0, el.offsetTop - hheight)
-
-}
