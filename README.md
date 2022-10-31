@@ -2,7 +2,7 @@
 Simple and basic english dictionary which uses free api - `https://api.dictionaryapi.dev/api/v2/entries/en/<word>`
 
 #### deployed on Firebase - [Link to the page](https://check-word-8352c.web.app/)
-### external api - pixabay
+#### used external api - [pixabay](https://pixabay.com/)
 
 
 
