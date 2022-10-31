@@ -24,7 +24,9 @@ function Meaning(props: Props) {
     <div className={`${partOfSpeech} p-of-s-w`}>
       {
       defs && defs.length > 0 ? (
-        <span className="p-of-s"> {`${partOfSpeech}`} [<span className="p-of-s-word" >{word}</span>]</span>
+        <>
+        <span className="p-of-s"> {`${partOfSpeech }`} </span>
+        </>
         
       ) : null
       }
@@ -32,7 +34,8 @@ function Meaning(props: Props) {
       {defs && defs.map((d: any) => 
 
         <div key={key++} className="meaning-wrapper">
-
+        <span className="p-of-s-word" >{word}</span>
+            
             <h3 ><span> Meaning - [{partOfSpeech}]: </span> {d}</h3>
             {exs && exs.length > 0 ?
                 exs.map(ex => <p key={key_two++} > <span> Ex: </span>{ex}</p>) : null}
