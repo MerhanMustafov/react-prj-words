@@ -1,4 +1,4 @@
-import {Definitions} from '../interfaces/Data'
+import {Definitions} from '../meaning/MeaningInterfaces'
 export function definition(p: string, definitions: Definitions){
 
         if(p == 'noun'.trim()){

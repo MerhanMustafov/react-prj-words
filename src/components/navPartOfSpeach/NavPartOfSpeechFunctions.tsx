@@ -15,7 +15,7 @@ export function scrollToTheElement(e: React.MouseEvent<HTMLElement>, partOfSpeec
     // header element
     const header = document.querySelector('header') as HTMLElement
     // the height of the whole header + 50
-    const hheight = header.clientHeight +20
+    const hheight = header.clientHeight + 20
     // scroll to minus the height of the whole header
     window.scroll(0, el.offsetTop - hheight)
 
