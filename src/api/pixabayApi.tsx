@@ -1,4 +1,4 @@
-const baseUrl = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&q=`
+const baseUrl = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API_KEY}&per_page=100&q=`
 
 
 

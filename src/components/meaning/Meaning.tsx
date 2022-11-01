@@ -1,84 +1,38 @@
-import { useState } from 'react'
-import { Definitions } from './interfaces/Data'
-import { definition, example } from './functions/Functions'
+// INTERFACES
+import { Definitions, ImageData } from './MeaningInterfaces'
 
-import { ImageData } from './interfaces/Image'
-
-// Components imports
-import { MeaningBox } from './meaningBox/MeaningBox'
-// API import
+// COMPONENTS
+import { MeaningSection } from '../meaningSection/MeaningSection'
 
 interface Props {
   definitions: Definitions
-  partOfSpeech: string
+  partOfSpeech: string[]
   word: string
-  images: ImageData[]
-  setImages: (imagesData: ImageData[]) => void
+  meaningImages: ImageData[]
+  setMeaningImages: (imgData: ImageData[]) => void
 }
 
 function Meaning(props: Props) {
-  const { definitions, partOfSpeech, word } = props
-
-//   const [images, setImages] = useState<ImageData[]>([])
-  
-
-  let defs: string[] | undefined = definition(partOfSpeech, definitions)
-  let exs: string[] | undefined = example(partOfSpeech, definitions)
+  let key = 1
 
   return (
     <>
-      {defs && defs.length > 0 ? (
-        <div className={`${partOfSpeech} p-of-s-w`}>
-          {defs && defs.length > 0 ? (
-            <>
-              <span className="p-of-s"> {`${partOfSpeech}`} </span>
-            </>
-          ) : null}
-
-          {defs &&
-            defs.map((d: any) => (
-              <MeaningBox
-                defs={defs}
-                exs={exs}
-                partOfSpeech={partOfSpeech}
-                word={word}
-                d={d}
-                images={props.images}
-                setImages={props.setImages}
-              ></MeaningBox>
-            ))}
-        </div>
-      ) : null}
+      <div className={`${props.partOfSpeech} m-s-block-wrapper`}>
+        {props.partOfSpeech.length > 0
+          ? props.partOfSpeech.map((partOfSpeachSection) => (
+              <MeaningSection
+                key={key++}
+                partOfSpeech={partOfSpeachSection}
+                definitions={props.definitions}
+                word={props.word}
+                meaningImages={props.meaningImages}
+                setMeaningImages={props.setMeaningImages}
+              ></MeaningSection>
+            ))
+          : null}
+      </div>
     </>
   )
 }
 
 export { Meaning }
-
-// {
-//       defs && defs.length > 0 ? (
-//         <>
-//         <span className="p-of-s"> {`${partOfSpeech }`} </span>
-//         </>
-
-//       ) : null
-//       }
-
-//       {defs && defs.map((d: any) =>
-
-//         <div key={key++} className="meaning-wrapper">
-//         <span className="p-of-s-word" >{word}</span>
-//         <span onClick={(e) => request(e)} className="visual" >{word}</span>
-//         <div className="images-w">
-//             {images.length > 0
-//             ?
-//                 images.map(i => <img key={key_three++} src={i.webformatURL} alt="image" /> )
-//             : null}
-//         </div>
-
-//             <h3 ><span> Meaning - [{partOfSpeech}]: </span> {d}</h3>
-//             {exs && exs.length > 0 ?
-//                 exs.map(ex => <p key={key_two++} > <span> Ex: </span>{ex}</p>) : null}
-//         </div>
-//       )
-//       }

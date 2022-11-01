@@ -1,25 +1,31 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-import './stylesheets/App.scss'
+// STYLES
+import './App.scss'
+
+// API
 import { getMeaning } from '../../api/request'
 
-// interface imports
-import { Definitions } from '../meaning/interfaces/Data'
-import {ImageData} from '../meaning/interfaces/Image'
+// INTERFACES
+import { Definitions, ImageData } from '../meaning/MeaningInterfaces'
 
-// function imports
-import { navInputOnScroll } from './functions/Functions'
+// FUNCTIONS
+import { navInputOnScroll } from './AppFunctions'
 
-// COMPONENT imports
+// COMPONENTS
 import { Meaning } from '../meaning/Meaning'
-import { Spinner } from '../Spinner/Spinner'
-import { PartOfSpeechNav } from '../Nav/PartOfSpeechNav/PartOfSpeechNav'
+import { Spinner } from '../spinner/Spinner'
+import { NavPartOfSpeech } from '../navPartOfSpeach/NavPartOfSpeech'
 
 function App() {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
   let key: number = 1
+
+    const [meaningImages, setMeaningImages] = useState<ImageData[]>([])
+
+
   const [word, setWord] = useState<string>('')
   const [wordSecondary, setWordSecondary] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
@@ -28,7 +34,6 @@ function App() {
   const [definitions, setDefinitions] = useState<Definitions>()
   const [partOfSpeech, setPartOfSpeech] = useState<string[]>([])
 
-  const [images, setImages] = useState<ImageData[]>([])
 
   async function request(e: string) {
     const o: Definitions = {
@@ -43,8 +48,9 @@ function App() {
     }
     if (e === 'click'.trim() || e === 'enter'.trim()) {
       //   e.preventDefault()
-      if (word.length > 0) {
+      if (word.length > 0 && word !== wordSecondary) {
         setLoading(true)
+        
         try {
           const res = await getMeaning(word)
           let p_of_s: string[] = []
@@ -130,7 +136,7 @@ function App() {
           setDefinitions(o)
           setError('')
           setWordSecondary(word)
-          setImages([])
+          setMeaningImages([])
           setTimeout(() => {
             setLoading(false)
           }, 1000)
@@ -138,7 +144,7 @@ function App() {
           setError('There is no such word !')
           setPartOfSpeech([])
           setDefinitions(undefined)
-          setImages([])
+          setMeaningImages([])
           setTimeout(() => {
             setLoading(false)
           }, 1000)
@@ -160,7 +166,7 @@ function App() {
           <div className="word">
             <label htmlFor="wordInput">Word</label>
             <div className="i-w">
-              <PartOfSpeechNav partOfSpeech={partOfSpeech}></PartOfSpeechNav>
+              <NavPartOfSpeech partOfSpeech={partOfSpeech}></NavPartOfSpeech>
               <input
                 type="text"
                 id="wordInput"
@@ -184,18 +190,16 @@ function App() {
           <Spinner></Spinner>
         ) : (
           <div className="w">
-            {definitions !== undefined
-              ? Object.keys(definitions).map((x) => (
-                  <Meaning
-                    key={key++}
-                    partOfSpeech={x}
-                    definitions={definitions}
-                    word={wordSecondary}
-                    images={images}
-                    setImages={setImages}
-                  ></Meaning>
-                ))
-              : null}
+            {definitions !== undefined ? (
+              <Meaning
+                key={key++}
+                partOfSpeech={partOfSpeech}
+                definitions={definitions}
+                word={wordSecondary}
+                meaningImages={meaningImages}
+                setMeaningImages={setMeaningImages}
+              ></Meaning>
+            ) : null}
           </div>
         )}
       </main>

@@ -4,10 +4,11 @@
   // padding: 0px;
   position: fixed;
   order: 5;
-  bottom: 0;
+  bottom: 2px;
   right: 50%;
   transform: translateX(50%);
   background: rgb(0, 0, 0);
+  padding: 0 0 10px 0;
   // background:transparent;
   overflow-x: auto;
   overscroll-behavior: contain;
@@ -30,7 +31,14 @@
   .ppp:hover {
     background: rgba(253, 253, 253);
     color: rgb(0, 0, 0);
+    color: rgb(120, 0, 120);
     cursor: pointer;
+  }
+
+  .active{
+     background: rgba(253, 253, 253);
+    color: rgb(0, 0, 0);
+    color: rgb(120, 0, 120);
   }
 }
 .p-of-s-nav-w::-webkit-scrollbar {

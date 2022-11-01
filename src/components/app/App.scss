@@ -1,7 +1,3 @@
-@import url('https://use.fontawesome.com/releases/v6.1.1/css/all.css');
-@import url(../../meaning//stylesheets/Meaning.scss);
-@import url(../../Spinner/stylesheets/Spinner.scss);
-@import url(../../Nav/PartOfSpeechNav/stylesheets/PartOfSpeechNav.scss);
 
 *::selection {
   // background: #f53a3a; /* WebKit/Blink Browsers */
@@ -16,7 +12,7 @@
   min-height: 100vh;
   min-width: 290px;
   margin: 0px auto;
-  background-image: url(../../../imgs/bg-keyboard.jpg);
+  background-image: url(../../imgs/bg-keyboard.jpg);
   background-position: fixed;
   background-attachment: fixed;
   background-repeat: no-repeat;
