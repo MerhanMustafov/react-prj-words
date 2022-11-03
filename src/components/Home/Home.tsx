@@ -33,9 +33,11 @@ interface Props {
 function Home(props: Props) {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
+  const [noSuchWordError, setNoSuchWordError] = useState<string>('')
+
   return (
     <div className="App">
-      <Search partOfSpeech={props.partOfSpeech}></Search>
+      <Search partOfSpeech={props.partOfSpeech} noSuchWordError={noSuchWordError}></Search>
       <Routes>
         <Route
           path="meaning/:word"
@@ -43,6 +45,8 @@ function Home(props: Props) {
             <Meanings
               setPartOfSpeech={props.setPartOfSpeech}
               partOfSpeech={props.partOfSpeech}
+              noSuchWordError={noSuchWordError}
+              setNoSuchWordError={setNoSuchWordError}
             />
           }
         ></Route>

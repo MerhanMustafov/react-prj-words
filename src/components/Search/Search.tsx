@@ -5,6 +5,7 @@ import {useParams} from 'react-router-dom'
 
 interface Props {
     partOfSpeech: string[]
+    noSuchWordError?: string
     
 }
 
@@ -17,6 +18,7 @@ export function Search(props: Props) {
     useEffect(() => {
         if(params['*']?.split('/')[1] !== undefined){
          setInputWord(params['*']?.split('/')[1])
+        //  console.log(params['*']?.split('/')[1])
 
         }
     }, [params['*']?.split('/')[1]])
@@ -54,9 +56,9 @@ export function Search(props: Props) {
               className="fa-sharp fa-solid fa-magnifying-glass"
               onClick={() => request()}
             ></i>
-            {/* {props?.searchLoading === false && props.searchError.length > 0 ? (
+            {props.noSuchWordError && props.noSuchWordError.length > 0 ? (
               <div className="error">There is no such word !</div>
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       </nav>
