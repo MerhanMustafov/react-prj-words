@@ -21,9 +21,11 @@ function MeaningBox(props: Props) {
   let key = 100
   let key_two = 200
   const [imagesClick, setImagesClick] = useState<boolean>(false)
+  const [loadingImages, setLoadingImages] = useState<boolean>(false)
 
 
   async function getImages(e: React.MouseEvent) {
+    setLoadingImages(true)
     if (imagesClick === true) {
       setImagesClick(false)
     } else {
@@ -40,6 +42,7 @@ function MeaningBox(props: Props) {
         console.log('There is no images !')
       }
     }
+    setLoadingImages(false)
   }
 
   return (
@@ -50,7 +53,7 @@ function MeaningBox(props: Props) {
           look for images
         </span>
         {imagesClick === true ? (
-          <ImageArea images={props.meaningImages}></ImageArea>
+          <ImageArea images={props.meaningImages} loadingImages={loadingImages} setLoadingImages={setLoadingImages}></ImageArea>
         ) : null}
 
         <h3> Meaning - [{props.partOfSpeech}]: 
