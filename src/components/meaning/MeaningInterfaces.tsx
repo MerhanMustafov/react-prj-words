@@ -7,8 +7,16 @@ export interface Definitions {
   preposition: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
   conjunction: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
   interjection: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
+
+  phonetic:  string[] 
+  audio: string[] 
 }
 
+interface Phonetics {
+    text: string
+    audio: string
+    // sourceUrl: "https://commons.wikimedia.org/w/index.php?curid=333689"
+}
 
 export interface ImageData {
   collections: number

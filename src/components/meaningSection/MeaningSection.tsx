@@ -12,6 +12,8 @@ interface Props {
   partOfSpeech: string
   definitions: Definitions | undefined
   word: string
+//   audio: string[]
+//   phonetic: string[]
   meaningImages: ImageData[]
   setMeaningImages: (imgData: ImageData[]) => void
 }
@@ -35,6 +37,8 @@ function MeaningSection(props: Props) {
         <MeaningBox
         key={key++}
           meaning={data}
+          audio={props.definitions && props.definitions.audio}
+          phonetic={props.definitions && props.definitions.phonetic}
           exs={exs}
           partOfSpeech={props.partOfSpeech}
           word={props.word}

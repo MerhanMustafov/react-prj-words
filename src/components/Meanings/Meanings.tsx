@@ -41,10 +41,25 @@ export function Meanings(props: Props) {
           preposition: { d: [], m: [], s: [], a: [], ex: [] },
           conjunction: { d: [], m: [], s: [], a: [], ex: [] },
           interjection: { d: [], m: [], s: [], a: [], ex: [] },
+          phonetic: [],
+          audio: [],
         }
 
         try {
           const res = await getMeaning(word)
+
+          // *************************************************
+          if (res[0].phonetics.length > 0) {
+            res[0].phonetics.forEach((phonetic: any) => {
+              if (phonetic.text) {
+                o.phonetic.push(phonetic.text)
+              }
+              if (phonetic.audio.length > 0) {
+                o.audio.push(phonetic.audio)
+              }
+            })
+          }
+          // *************************************************
           let p_of_s: string[] = []
           res.forEach((obj: any) => {
             obj.meanings.forEach((def: any) => {
@@ -147,7 +162,6 @@ export function Meanings(props: Props) {
       }
     }
     request(params.word)
-    // console.log('WithIn MeaningS useEffect', params.word)
   }, [params.word])
 
   return (
