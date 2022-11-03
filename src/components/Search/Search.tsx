@@ -1,5 +1,5 @@
 import {NavPartOfSpeech} from '../navPartOfSpeach/NavPartOfSpeech'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useParams} from 'react-router-dom'
 
@@ -11,8 +11,17 @@ interface Props {
 export function Search(props: Props) {
     const navigate = useNavigate()
     const params = useParams()
-    const [inputWord, setInputWord] = useState<string>()
+    const [inputWord, setInputWord] = useState<string>('')
     // console.log(' withIN SEARCH', params['*']?.split('/')[1])
+
+    useEffect(() => {
+        if(params['*']?.split('/')[1] !== undefined){
+         setInputWord(params['*']?.split('/')[1])
+
+        }
+    }, [params['*']?.split('/')[1]])
+
+   
 
     function request(){
         navigate(`/home/meaning/${inputWord}`)
@@ -30,14 +39,14 @@ export function Search(props: Props) {
     <header>
       <nav>
         <div className="word">
-          <label htmlFor="wordInput" onClick={(e) => navigate(`/`) }>Word</label>
+          <label htmlFor="wordInput" onClick={() => navigate('/') }>Word</label>
           <div className="i-w">
             
             <input
               type="text"
               id="wordInput"
               placeholder="ex: sky"
-              defaultValue={params['*']?.split('/')[1]}
+              value={inputWord}
               onChange={(e) => setInputWord(e.target.value)}
               onKeyDown={(e) => requestOnEnter(e)}
             />

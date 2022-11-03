@@ -131,18 +131,20 @@ export function Meanings(props: Props) {
             setError('')
             setWordSecondary(word)
             setMeaningImages([])
-            setTimeout(() => {
               setLoading(false)
-            }, 1000)
+            // setTimeout(() => {
+            //   setLoading(false)
+            // }, 1000)
           } catch (err) {
             setError('There is no such word !')
             // props.setSearchError('There is no such word !')
             setPartOfSpeech([])
             setDefinitions(undefined)
             setMeaningImages([])
-            setTimeout(() => {
               setLoading(false)
-            }, 1000)
+            // setTimeout(() => {
+            //   setLoading(false)
+            // }, 1000)
           }
         }
         //   }
