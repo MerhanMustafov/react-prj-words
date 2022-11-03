@@ -44,6 +44,7 @@ header {
     //   border: 2px solid rgb(255, 3, 3);
       display: flex;
       align-items: stretch;
+      position: relative;
         input {
             flex-grow: 2;
           font-size: 35px;
@@ -81,6 +82,7 @@ header {
         }
        
         .error {
+            
           // border:3px solid white;
           color: rgb(255, 0, 255);
           border: 3px solid rgb(255, 0, 255);

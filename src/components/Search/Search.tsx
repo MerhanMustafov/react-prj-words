@@ -77,9 +77,9 @@ export function Search(props: Props) {
               className="fa-sharp fa-solid fa-magnifying-glass"
               onClick={() => request()}
             ></i>
-            {props.noSuchWordError && props.noSuchWordError.length > 0 ? (
+            {/* {props.noSuchWordError && props.noSuchWordError.length > 0 ? (
               <div className="error">There is no such word !</div>
-            ) : null}
+            ) : null} */}
           </div>
         </div>
       </nav>
