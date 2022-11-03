@@ -146,11 +146,14 @@ export function Meanings(props: Props) {
           setWordSecondary(word)
           setMeaningImages([])
           setLoading(false)
+          document.title = "meaning" + "-" + word
+
           // setTimeout(() => {
           //   setLoading(false)
           // }, 1000)
         } catch (err) {
           props.setNoSuchWordError('There is no such word !')
+          document.title = 'no such word'
           setPartOfSpeech([])
           setDefinitions(undefined)
           setMeaningImages([])
