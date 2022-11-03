@@ -42,6 +42,7 @@ function Home(props: Props) {
           element={
             <Meanings
               setPartOfSpeech={props.setPartOfSpeech}
+              partOfSpeech={props.partOfSpeech}
             />
           }
         ></Route>

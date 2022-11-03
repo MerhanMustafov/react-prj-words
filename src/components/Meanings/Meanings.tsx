@@ -4,9 +4,11 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getMeaning } from '../../api/request'
 import { Definitions, ImageData } from '../meaning/MeaningInterfaces'
+import {NavPartOfSpeech} from '../navPartOfSpeach/NavPartOfSpeech'
 
 interface Props {
     setPartOfSpeech: (array: string[]) => void
+    partOfSpeech: string[]
     // setSearchError: (s: string) => void
 }
 
@@ -166,6 +168,7 @@ export function Meanings(props: Props) {
                       setMeaningImages={setMeaningImages}
                     ></Meaning>
                   ) : null}
+                  <NavPartOfSpeech partOfSpeech={props.partOfSpeech}></NavPartOfSpeech>
                 </div>
               )}
     </main>

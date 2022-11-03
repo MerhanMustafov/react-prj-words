@@ -25,13 +25,14 @@ export function Search(props: Props) {
             navigate(`/home/meaning/${inputWord}`)
         }
     }
+
   return (
     <header>
       <nav>
         <div className="word">
-          <label htmlFor="wordInput">Word</label>
+          <label htmlFor="wordInput" onClick={(e) => navigate(`/`) }>Word</label>
           <div className="i-w">
-            <NavPartOfSpeech partOfSpeech={props.partOfSpeech}></NavPartOfSpeech>
+            
             <input
               type="text"
               id="wordInput"
