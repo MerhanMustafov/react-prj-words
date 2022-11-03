@@ -164,6 +164,7 @@ export function Meanings(props: Props) {
         }
       }
     }
+    props.setNoSuchWordError('')
     request(params.word)
   }, [params.word])
 
