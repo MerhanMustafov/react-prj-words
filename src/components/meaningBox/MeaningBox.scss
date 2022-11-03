@@ -5,7 +5,7 @@
   padding: 15px 25px;
   border-radius: 50px;
   //   border-left: 5px solid rgb(120, 0, 120);
-    // border-right: 5px solid rgb(120, 0, 120);
+  // border-right: 5px solid rgb(120, 0, 120);
   background: rgba(240, 240, 245, 1);
   margin: 10px 0 70px 0;
 
@@ -16,26 +16,12 @@
     margin: 0px 0 10px 0;
     // border: 2px solid red;
     audio {
-       
       border: 1px solid rgb(120, 0, 120);
       height: 23px;
       border-radius: 50px;
     }
     .phinetic-text {
       font-size: 23px;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    .audio-phonetic-wrapper {
-      flex-wrap: wrap;
-      gap: 0px;
-      audio {
-        // width: 80%;
-         width: 150px;
-      }
-      .phinetic-text {
-      font-size: 17px;
-    }
     }
   }
 
@@ -62,7 +48,7 @@
     //   font-family: 'Courier New', Courier, monospace;
     letter-spacing: 0.5px;
     // border: 2px solid red;
-    color: rgb(0, 0, 0);
+    // color: rgb(0, 0, 0);
     font-size: 17px;
     span {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -72,6 +58,7 @@
       //   font-weight: 600;
     }
   }
+
   p {
     //  border: 2px solid  red;
     //   font-family: 'Courier New', Courier, monospace;
@@ -86,4 +73,56 @@
       font-weight: 900;
     }
   }
+  @media screen and (max-width: 800px) {
+    .audio-phonetic-wrapper {
+      flex-wrap: wrap;
+      gap: 0px;
+      audio {
+        // width: 80%;
+        width: 150px;
+      }
+      .phinetic-text {
+        font-size: 17px;
+      }
+    }
+  }
+ 
+
+  @media screen and (max-width: 600px) {
+    .p-of-s-word {
+    font-size: 20px;
+  }
+    .audio-phonetic-wrapper {
+      flex-wrap: wrap;
+      gap: 0px;
+      audio {
+        height: 15px;
+        width: 150px;
+      }
+      .phinetic-text {
+        font-size: 17px;
+      }
+    }
+    h3 {
+      font-size: 12px;
+      span {
+        padding-left: 15px;
+        font-size: 15px;
+        color: black;
+      }
+    }
+
+
+
+    p {
+    font-size: 13px;
+    span {
+      font-size: 10px;
+      color: black;
+    }
+  }
+  }
+
+
+
 }

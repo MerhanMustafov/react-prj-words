@@ -35,16 +35,39 @@ export function Search(props: Props) {
         }
     }
 
+    function logoClick(){
+        document.title = 'Check-Word'
+        navigate('/')
+    }
+
   return (
     <header>
       <nav>
         <div className="word">
-          <label htmlFor="wordInput" onClick={() => navigate('/') }>Word</label>
+          <label htmlFor="wordInput" onClick={() => logoClick() }>Word</label>
           <div className="i-w">
             
             <input
               type="text"
               id="wordInput"
+              placeholder="ex: sky"
+              value={inputWord}
+              onChange={(e) => setInputWord(e.target.value)}
+              onKeyDown={(e) => requestOnEnter(e)}
+            />
+            <i
+              className="fa-sharp fa-solid fa-magnifying-glass"
+              onClick={() => request()}
+            ></i>
+            {props.noSuchWordError && props.noSuchWordError.length > 0 ? (
+              <div className="error">There is no such word !</div>
+            ) : null}
+          </div>
+          <div className="hidden" id="i-w-onScroll">
+            
+            <input
+              type="text"
+              id="wordInput-onScroll"
               placeholder="ex: sky"
               value={inputWord}
               onChange={(e) => setInputWord(e.target.value)}

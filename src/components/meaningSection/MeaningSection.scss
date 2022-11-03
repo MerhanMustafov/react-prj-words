@@ -5,4 +5,14 @@
     background: rgb(70, 70, 70, 0.5);
     margin: 20px 0 10px 0;
   }
+
+  @media screen and (max-width: 600px) {
+    .part-of-speech-title {
+    color: white;
+    font-size: 30px;
+    background: rgb(70, 70, 70, 0.5);
+    margin: 20px 0 10px 0;
+  }
+    
+  }
 }
