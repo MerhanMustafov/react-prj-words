@@ -5,7 +5,7 @@ import { Definitions, ImageData } from './MeaningInterfaces'
 import { MeaningSection } from '../meaningSection/MeaningSection'
 
 interface Props {
-  definitions: Definitions
+  definitions: Definitions | undefined
   partOfSpeech: string[]
   word: string
   meaningImages: ImageData[]
@@ -13,7 +13,7 @@ interface Props {
 }
 
 function Meaning(props: Props) {
-  let key = 1
+  let key = 843
 
   return (
     <>

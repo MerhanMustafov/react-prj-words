@@ -11,6 +11,8 @@ import { horizontalScroll } from './MeaningImageAreaFunctions'
 
 interface Props {
   images: ImageData[]
+  loadingImages: boolean
+  setLoadingImages: (b: boolean) => void
   // setImages: (images: ImageData[]) => void
 }
 
@@ -38,13 +40,18 @@ function ImageArea(props: Props) {
           onWheel={(e) => horizontalScroll(e)}
           className="images-w"
         >
-          {currentImages.length > 0 ? (
-            currentImages.map((el, index) => (
-              <img key={index} src={el.webformatURL} alt="image" />
-            ))
-          ) : (
-            <div className="no-images">There is no images !</div>
-          )}
+            <>
+            {props.loadingImages
+            ? <div>LOADING ...</div>
+             
+            : currentImages.length > 0 
+            ? (currentImages.map((el, index) => (<img key={index} src={el.webformatURL} alt="image" />))) 
+            : (<div className="no-images">There is no images !</div>)
+            }
+            
+            
+            </>
+          
         </div>
 
         <Paginate

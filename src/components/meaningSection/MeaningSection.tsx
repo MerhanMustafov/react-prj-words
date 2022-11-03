@@ -10,7 +10,7 @@ import { definition, example } from './MeaningSectionFunctions'
 
 interface Props {
   partOfSpeech: string
-  definitions: Definitions
+  definitions: Definitions | undefined
   word: string
   meaningImages: ImageData[]
   setMeaningImages: (imgData: ImageData[]) => void
@@ -18,7 +18,7 @@ interface Props {
 
 
 function MeaningSection(props: Props) {
-    let key = 832
+    let key = 632
   let defs: string[] | undefined = definition(
     props.partOfSpeech,
     props.definitions,
