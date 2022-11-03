@@ -38,6 +38,7 @@ header {
       label {
         font-size: 40px;
         color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
       }
       .i-w {
         position: relative;
@@ -77,6 +78,7 @@ header {
           top: 10%;
           color: rgba(255, 255, 255, 0.5);
           font-size: 40px;
+          cursor: pointer;
         }
         .error {
           // border:3px solid white;

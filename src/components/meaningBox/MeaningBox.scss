@@ -9,6 +9,22 @@
   background: rgba(240, 240, 245, 1);
   margin: 10px 0 70px 0;
 
+  .audio-phonetic-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0px 0 10px 0; 
+    // border: 2px solid red;
+    audio{
+        border: 1px solid rgb(120, 0, 120);
+        height: 25px;
+        border-radius: 50px;
+    }
+    .phinetic-text{
+        font-size: 23px;
+    }
+  }
+
   .block {
     display: block;
   }
@@ -16,6 +32,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     color: rgb(0, 0, 170);
+    cursor: pointer;
   }
   
 

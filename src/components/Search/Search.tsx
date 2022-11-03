@@ -13,12 +13,10 @@ export function Search(props: Props) {
     const navigate = useNavigate()
     const params = useParams()
     const [inputWord, setInputWord] = useState<string>('')
-    // console.log(' withIN SEARCH', params['*']?.split('/')[1])
 
     useEffect(() => {
         if(params['*']?.split('/')[1] !== undefined){
          setInputWord(params['*']?.split('/')[1])
-        //  console.log(params['*']?.split('/')[1])
 
         }
     }, [params['*']?.split('/')[1]])

@@ -10,6 +10,8 @@ import { ImageData } from '../meaning/MeaningInterfaces'
 
 interface Props {
   meaning: string
+  audio?: string[] 
+  phonetic?: string[]
   exs: string[] | undefined
   partOfSpeech: string
   word: string
@@ -39,16 +41,21 @@ function MeaningBox(props: Props) {
         }
       } catch (err) {
         props.setMeaningImages([])
-        console.log('There is no images !')
       }
     }
     setLoadingImages(false)
   }
 
+
   return (
     <>
       <div key={key++} className="meaning-wrapper">
-        <span className="p-of-s-word block">{props.word}</span>
+        <span className="p-of-s-word block">{props.word} </span>
+        <div className="audio-phonetic-wrapper">
+            <audio controls> <source src={props.audio && props.audio[0]}  type="audio/mp3"/>  </audio>
+            <span className="phinetic-text" >{props.phonetic && props.phonetic[0]}</span>
+            
+        </div>
         <span onClick={(e) => getImages(e)} className="visual block">
           look for images
         </span>
