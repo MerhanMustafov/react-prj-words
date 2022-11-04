@@ -34,8 +34,31 @@
     margin: 5px auto 0 10px;
     height: 350px;
     min-width: 200px;
-    .no-images {
-      font-family: 'Courier New', Courier, monospace;
+    .images-loading{
+        // border: 2px solid red;
+        align-self: center;
+        margin: 0 auto;
+        animation-name: imagesLoading;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate-reverse;
+    }
+    @keyframes imagesLoading {
+        0%{
+            font-size: 20px;
+        }
+        100%{font-size: 40px;}
+    }
+    .no-images-wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; 
+        .no-images {
+        font-family: 'Courier New', Courier, monospace;
+        }
+
     }
     .show {
       display: block;

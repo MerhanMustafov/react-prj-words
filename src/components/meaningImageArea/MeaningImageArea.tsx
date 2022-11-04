@@ -13,6 +13,7 @@ interface Props {
   images: ImageData[]
   loadingImages: boolean
   setLoadingImages: (b: boolean) => void
+  realoadImages: () => void
   // setImages: (images: ImageData[]) => void
 }
 
@@ -25,6 +26,7 @@ function ImageArea(props: Props) {
   const currentImages = props.images.slice(indexOfFirstImage, indexOfLastImage)
 
   const paginate = (e: React.MouseEvent, number: number) => {
+    props.setLoadingImages(true)
     const element = e.target as HTMLElement
     const previouseClicked = document.querySelector('.clicked') as HTMLElement
     if(previouseClicked){
@@ -33,7 +35,13 @@ function ImageArea(props: Props) {
     element.classList.add('clicked')
     
     setCurrentPage(number)
+    setTimeout(() => {
+        props.setLoadingImages(false)
+
+    }, 1100)
   }
+
+
   return (
     <div className="imgs-outer-wrapper">
         
@@ -46,11 +54,19 @@ function ImageArea(props: Props) {
         >
             <>
             {props.loadingImages
-            ? <div>LOADING ...</div>
+            ? <div className="images-loading">
+                 LOADING ...
+                </div>
              
             : currentImages.length > 0 
             ? (currentImages.map((el, index) => (<img key={index} src={el.webformatURL} alt="image" />))) 
-            : (<div className="no-images">There is no images !</div>)
+            : (
+                <div className="no-images-wrapper">
+                    <div className="no-images">There is no images !</div>
+                    <i className="fa-solid fa-rotate-right" onClick={() => props.realoadImages()}></i>
+
+                </div>
+            )
             }
             
             
@@ -62,6 +78,7 @@ function ImageArea(props: Props) {
           totlalImages={props.images.length}
           imagesPerPage={imagesPerPage}
           paginate={paginate}
+          setLoadingImages={props.setLoadingImages}
         ></Paginate>
     </div>
   )
