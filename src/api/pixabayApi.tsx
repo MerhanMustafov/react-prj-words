@@ -3,9 +3,9 @@ const baseUrl = `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_AP
 
 
 async function getImagesFromWord(word: string){
-    const url = baseUrl + word
+    const url = baseUrl + word.trim()
     const request = await fetch(url)
-    return request.json()
+    return  request.json()
 }
 
 

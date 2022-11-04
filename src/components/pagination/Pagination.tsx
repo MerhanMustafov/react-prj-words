@@ -4,6 +4,7 @@ interface Props{
     totlalImages: number,
     imagesPerPage: number
     paginate: (e: React.MouseEvent, num: number) => void
+    setLoadingImages: (b: boolean) => void
 }
 
 function Paginate(props: Props){
