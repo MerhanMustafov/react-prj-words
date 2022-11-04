@@ -27,23 +27,15 @@ function App() {
 
   const [partOfSpeech, setPartOfSpeech] = useState<string[]>([])
   const [searchLoading, setSearchLoading] = useState<boolean>(false)
-//   const [searchError, setSearchError] = useState<string>('')
 
   return (
     <div className="App">
       <Routes>
         <Route
           path="/*"
-          element={
-            <Search
-              partOfSpeech={partOfSpeech}
-            //   searchLoading={searchLoading}
-            //   setSearchLoading={setSearchLoading}
-            //   searchError={searchError}
-            //   setSearchError={setSearchError}
-            />
-          }
+          element={<Search partOfSpeech={partOfSpeech} />}
         ></Route>
+
         <Route
           path="/home/*"
           element={
@@ -52,8 +44,6 @@ function App() {
               setPartOfSpeech={setPartOfSpeech}
               searchLoading={searchLoading}
               setSearchLoading={setSearchLoading}
-            //   searchError={searchError}
-            //   setSearchError={setSearchError}
             />
           }
         ></Route>

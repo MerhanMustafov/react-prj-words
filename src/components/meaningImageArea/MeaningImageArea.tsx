@@ -35,7 +35,11 @@ function ImageArea(props: Props) {
     setCurrentPage(number)
   }
   return (
-    <>
+    <div className="imgs-outer-wrapper">
+        
+            <a  id="pixabay-link" href="https://pixabay.com/" target="_blank"><img id="img-pixabay-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Pixabay-logo.svg/1280px-Pixabay-logo.svg.png" alt="go to pixabay.com" /></a>
+            
+
         <div
           onWheel={(e) => horizontalScroll(e)}
           className="images-w"
@@ -59,7 +63,7 @@ function ImageArea(props: Props) {
           imagesPerPage={imagesPerPage}
           paginate={paginate}
         ></Paginate>
-    </>
+    </div>
   )
 }
 

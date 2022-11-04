@@ -1,15 +1,41 @@
-.images-w {
+.imgs-outer-wrapper {
+  #pixabay-link {
+    // border: 2px solid red;
+    // display: ;
+      padding: 0px 3px 0px 5px ;
+    //   animation-name: pixaBay;
+    //   animation-duration: 2s;
+    //   animation-iteration-count: infinite;
+    //   animation-direction: alternate;
+    #img-pixabay-logo {
+      margin-top: 5px;
+      width: 80px;
+      height: 13px;
+      // border: 2px solid green;
+      cursor: pointer;
+    }
+
+  }
+//   @keyframes pixaBay {
+//     0%{background: rgba(120, 0, 120, 0.0);}
+//     100%{background: rgb(120, 0, 120, 0.2);}
+//   }
+//   @keyframes pixaBay {
+//     0%{border: 1px solid rgba(120, 0, 120, 0.0); border-bottom: none;}
+//     100%{border: 1px solid rgb(120, 0, 120); border-bottom: none;}
+//   }
+  .images-w {
     display: flex;
     overflow: auto;
     overscroll-behavior: contain;
     // border-left: 3px solid  rgb(120, 0, 120);
     // border-right: 3px solid rgb(120, 0, 120);
     width: 93%;
-    margin: 0 auto 0 10px;
+    margin: 5px auto 0 10px;
     height: 350px;
     min-width: 200px;
-    .no-images{
-        font-family: 'Courier New', Courier, monospace;
+    .no-images {
+      font-family: 'Courier New', Courier, monospace;
     }
     .show {
       display: block;
@@ -19,28 +45,37 @@
     }
     img {
       width: 390px;
-      padding:3px; 
-    //   margin: 0px 0 15px 0;
-    //   height: 200px;
+      padding: 3px;
+      //   margin: 0px 0 15px 0;
+      //   height: 200px;
     }
-
-    
   }
-  .images-w::-webkit-scrollbar{
+  .images-w::-webkit-scrollbar {
     height: 13px;
   }
-  .images-w::-webkit-scrollbar-thumb{
+  .images-w::-webkit-scrollbar-thumb {
     background: rgba(104, 104, 104, 0.322);
     border-radius: 20px;
   }
   @media screen and (max-width: 600px) {
-    .images-w{
-        margin: 0 auto;
-        width: 95%;
-        height: 200px;
-        img{
-            width: 220px;
-        }
+    #pixabay-link {
+      padding: 0px 3px 0px 5px ;
+    #img-pixabay-logo {
+      margin-top: 5px;
+      width: 55px;
+      height: 10px;
+      // border: 2px solid green;
+      cursor: pointer;
+    }
 
+  }
+    .images-w {
+      margin: 0 auto;
+      width: 95%;
+      height: 200px;
+      img {
+        width: 220px;
+      }
     }
-    }
+  }
+}
