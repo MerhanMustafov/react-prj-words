@@ -36,8 +36,11 @@ function Home(props: Props) {
   const [noSuchWordError, setNoSuchWordError] = useState<string>('')
 
   return (
-    <div className="App">
+    <div className="Home">
+        
+
       <Search partOfSpeech={props.partOfSpeech} noSuchWordError={noSuchWordError}></Search>
+     
       <Routes>
         <Route
           path="meaning/:word"

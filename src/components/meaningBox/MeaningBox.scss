@@ -25,10 +25,10 @@
     }
   }
 
-  .block {
-    display: block;
-  }
+
+  
   .visual {
+    // border: 2px solid red;
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     color: rgb(0, 0, 170);
@@ -42,6 +42,10 @@
     color: rgb(120, 0, 120);
     font-size: 25px;
     font-weight: 600;
+  }
+    .p-of-s-word.block {
+    // border: 2px solid red;
+    display: block;
   }
   h3 {
     font-family: 'Courier New', Courier, monospace;
@@ -86,12 +90,11 @@
       }
     }
   }
- 
 
   @media screen and (max-width: 600px) {
     .p-of-s-word {
-    font-size: 20px;
-  }
+      font-size: 20px;
+    }
     .audio-phonetic-wrapper {
       flex-wrap: wrap;
       gap: 0px;
@@ -112,17 +115,12 @@
       }
     }
 
-
-
     p {
-    font-size: 13px;
-    span {
-      font-size: 10px;
-      color: black;
+      font-size: 13px;
+      span {
+        font-size: 10px;
+        color: black;
+      }
     }
   }
-  }
-
-
-
 }

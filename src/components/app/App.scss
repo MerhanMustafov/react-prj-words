@@ -8,9 +8,10 @@
 }
 
 #root {
+//   border: 2px solid red;
   // width: 100%;
   min-height: 100vh;
-  min-width: 300px;
+  min-width: 350px;
   margin: 0px auto;
   background-image: url(../../imgs/bg-keyboard.jpg);
   background-position: fixed;
@@ -26,166 +27,173 @@
   }
 }
 
-header {
-  nav {
-    // border: 2px solid gray;
-    padding: 15px;
-    .word {
+// header {
+//   border: 2px solid red;
+//   nav {
+// border: 2px solid gray;
+// padding: 15px;
+.word {
+//   border: 2px solid rgb(0, 255, 13);
+  max-width: 1920px;
+  margin: 0 auto;
+  width: calc(90%);
+  transition: background 1s, position 2s 5s;
+  label {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  .i-w {
     //   border: 2px solid rgb(255, 3, 3);
-      transition: background 1s, position 2s 5s;
-      width: calc(93% - 45px);
-      margin: 0 auto;
-      label {
-        font-size: 40px;
-        color: rgba(255, 255, 255, 0.7);
-        cursor: pointer;
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    input {
+      flex-grow: 2;
+      font-size: 35px;
+      padding: 0px 20px 3px 10px;
+      width: 93%;
+
+      //   margin: auto 0 auto auto;
+      display: block;
+      background: rgba(255, 255, 255, 0);
+      outline: none;
+      border: 1px solid white;
+      border-right: none;
+      color: white;
+    }
+    i {
+      border: 1px solid rgb(255, 255, 255);
+      border-left: none;
+      padding: 8px 8px 0 8px;
+      color: rgba(255, 255, 255, 0.637);
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px) {
+      input {
+        width: 96%;
       }
-      .i-w {
-    //   border: 2px solid rgb(255, 3, 3);
-      display: flex;
-      align-items: stretch;
-      position: relative;
-        input {
-            flex-grow: 2;
-          font-size: 35px;
-          padding: 10px;
-          width: 93%;
-          margin: auto 0 auto auto;
-          display: block;
-          background: rgba(255, 255, 255, 0);
-          outline: none;
-          border: 2px solid white;
-          color: white;
-        }
-         i {
-          border: 1px solid rgb(255, 255, 255);
-        padding: 8px 8px 0 8px;
-          color: rgba(255, 255, 255, 0.637);
-          font-size: 45px;
-          cursor: pointer;
-        }
-
-        @media screen and (max-width: 900px) {
-          input {
-            width: 96%;
-          }
-        }
-        @media screen and (max-width: 800px) {
-          input {
-            width: 93%;
-          }
-        }
-        @media screen and (max-width: 500px) {
-          input {
-            width: 90%;
-          }
-        }
-       
-        .error {
-            
-          // border:3px solid white;
-          color: rgb(255, 0, 255);
-          border: 3px solid rgb(255, 0, 255);
-          padding: 7px;
-          bottom: -35px;
-          left: 0%;
-          font-size: 20px;
-          position: absolute;
-          background: black;
-
-          animation-name: noWord;
-          animation-duration: 5s;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-        @keyframes noWord {
-          0% {
-            left: 0%;
-          }
-          100% {
-            left: 10%;
-          }
-        }
+    }
+    @media screen and (max-width: 800px) {
+      input {
+        width: 93%;
       }
-
-      #i-w-onScroll {
-        // border: 5px solid red;
-        display: flex;
-        align-items: center;
-        z-index: 111;
-        width: calc(90% - 45px);
-        position: fixed;
-        top: 3px;
-        max-width: 1750px;
-        // border-radius: 20px;
-        background: black;
-        input {
-          flex-grow: 2;
-          padding: 10px;
-          border-radius: inherit;
-          outline: none;
-          background: rgb(0, 0, 0);
-          border: none;
-          color: rgb(199, 199, 199);
-          height: 15px;
-          font-size: 23px;
-        }
-
-        @media screen and (max-width: 900px) {
-          input {
-            width: 96%;
-          }
-        }
-        @media screen and (max-width: 800px) {
-          input {
-            width: 93%;
-          }
-        }
-        @media screen and (max-width: 500px) {
-          input {
-            width: 90%;
-          }
-        }
-        i {
-        //   border: 2px solid red;
-          color: rgba(255, 255, 255, 0.5);
-          font-size: 25px;
-          padding: 0 17px 0 0;
-          border-radius: inherit;
-          cursor: pointer;
-        }
-        .error {
-          color: rgb(255, 0, 255);
-          border: 3px solid rgb(255, 0, 255);
-          padding: 7px;
-          bottom: -35px;
-          left: 0%;
-          font-size: 20px;
-          position: absolute;
-          background: black;
-
-          animation-name: noWord;
-          animation-duration: 5s;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-        @keyframes noWord {
-          0% {
-            left: 0%;
-          }
-          100% {
-            left: 10%;
-          }
-        }
-      }
-
-      #i-w-onScroll.hidden {
-        display: none;
+    }
+    @media screen and (max-width: 500px) {
+      input {
+        width: 90%;
       }
     }
 
+    .error {
+      // border:3px solid white;
+      color: rgb(255, 0, 255);
+      border: 1px solid rgb(255, 0, 255);
+      padding: 5px;
+      bottom: -30px;
+      left: 0%;
+      font-size: 17px;
+      position: absolute;
+      background: black;
+
+      animation-name: noWord;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    @keyframes noWord {
+      0% {
+        left: 0%;
+      }
+      100% {
+        left: 7%;
+      }
+    }
+  }
+
+  #i-w-onScroll {
+    // border: 5px solid red;
+    position: fixed;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1750px;
+    display: flex;
+    width: calc(90%);
+    align-items: center;
+    // justify-content: center;
+    // margin: 0 auto;
+    z-index: 111;
+    // border-radius: 20px;
+    background: black;
+    input {
+      flex-grow: 2;
+      padding: 10px;
+      border-radius: inherit;
+      outline: none;
+      background: rgb(0, 0, 0);
+      border: none;
+      color: rgb(199, 199, 199);
+      height: 15px;
+      font-size: 23px;
+    }
+
+    @media screen and (max-width: 900px) {
+      input {
+        width: 96%;
+      }
+    }
+    @media screen and (max-width: 800px) {
+      input {
+        width: 93%;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      input {
+        width: 90%;
+      }
+    }
+    i {
+      //   border: 2px solid red;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 21px;
+      padding: 0 17px 0 0;
+      border-radius: inherit;
+      cursor: pointer;
+    }
+    .error {
+      color: rgb(255, 0, 255);
+      border: 3px solid rgb(255, 0, 255);
+      padding: 7px;
+      bottom: -35px;
+      left: 0%;
+      font-size: 20px;
+      position: absolute;
+      background: black;
+
+      animation-name: noWord;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    @keyframes noWord {
+      0% {
+        left: 0%;
+      }
+      100% {
+        left: 10%;
+      }
+    }
+  }
+
+  #i-w-onScroll.hidden {
+    display: none;
   }
 }
+//   }
+// }
 
 main {
   .w {

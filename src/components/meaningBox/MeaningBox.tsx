@@ -56,9 +56,11 @@ function MeaningBox(props: Props) {
             <span className="phinetic-text" >{props.phonetic && props.phonetic[0]}</span>
             
         </div>
-        <span onClick={(e) => getImages(e)} className="visual block">
+
+        <span onClick={(e) => getImages(e)} className="visual">
           look for images
         </span>
+
         {imagesClick === true ? (
           <ImageArea images={props.meaningImages} loadingImages={loadingImages} setLoadingImages={setLoadingImages}></ImageArea>
         ) : null}
