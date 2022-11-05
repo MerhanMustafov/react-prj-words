@@ -12,8 +12,6 @@ interface Props {
   partOfSpeech: string
   definitions: Definitions | undefined
   word: string
-//   audio: string[]
-//   phonetic: string[]
   meaningImages: ImageData[]
   setMeaningImages: (imgData: ImageData[]) => void
 }
