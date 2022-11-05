@@ -11,7 +11,6 @@ interface Props {
   partOfSpeech: string[]
   noSuchWordError: string
   setNoSuchWordError: (s: string) => void
-  // setSearchError: (s: string) => void
 }
 
 export function Meanings(props: Props) {
@@ -20,7 +19,6 @@ export function Meanings(props: Props) {
 
   const [meaningImages, setMeaningImages] = useState<ImageData[]>([])
 
-  const [word, setWord] = useState<string>('')
   const [wordSecondary, setWordSecondary] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
 

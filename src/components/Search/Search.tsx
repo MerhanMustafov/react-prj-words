@@ -1,4 +1,3 @@
-import { NavPartOfSpeech } from '../navPartOfSpeach/NavPartOfSpeech'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
@@ -6,6 +5,7 @@ import { useParams } from 'react-router-dom'
 interface Props {
   partOfSpeech: string[]
   noSuchWordError?: string
+  setNoSuchWordError: (w: string) => void
 }
 
 export function Search(props: Props) {
@@ -31,6 +31,7 @@ export function Search(props: Props) {
 
   function logoClick() {
     document.title = 'Check-Word'
+    setInputWord('')
     navigate('/')
   }
 
@@ -71,9 +72,6 @@ export function Search(props: Props) {
               className="fa-sharp fa-solid fa-magnifying-glass"
               onClick={() => request()}
             ></i>
-            {/* {props.noSuchWordError && props.noSuchWordError.length > 0 ? (
-              <div className="error">There is no such word !</div>
-            ) : null} */}
           </div>
         </div>
       </nav>

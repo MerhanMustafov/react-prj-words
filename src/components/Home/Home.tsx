@@ -5,20 +5,10 @@ import { Routes, Route } from 'react-router-dom'
 // STYLES
 import '../app/App.scss'
 
-// API
-import { getMeaning } from '../../api/request'
-
-// INTERFACES
-import { Definitions, ImageData } from '../meaning/MeaningInterfaces'
-
 // FUNCTIONS
 import { navInputOnScroll } from '../app/AppFunctions'
 
 // COMPONENTS
-import { Meaning } from '../meaning/Meaning'
-import { Spinner } from '../spinner/Spinner'
-import { NavPartOfSpeech } from '../navPartOfSpeach/NavPartOfSpeech'
-import { Search } from '../Search/Search'
 import { Meanings } from '../Meanings/Meanings'
 
 interface Props {
@@ -26,30 +16,26 @@ interface Props {
   setPartOfSpeech: (a: string[]) => void
   searchLoading: boolean
   setSearchLoading: (b: boolean) => void
-//   searchError: string
-//   setSearchError: (s: string) => void
+  noSuchWordError: string
+  setNoSuchWordError: (w: string) => void
 }
 
 function Home(props: Props) {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
-  const [noSuchWordError, setNoSuchWordError] = useState<string>('')
 
   return (
     <div className="Home">
-        
-
-      <Search partOfSpeech={props.partOfSpeech} noSuchWordError={noSuchWordError}></Search>
      
       <Routes>
         <Route
-          path="meaning/:word"
+          path="/meaning/:word"
           element={
             <Meanings
               setPartOfSpeech={props.setPartOfSpeech}
               partOfSpeech={props.partOfSpeech}
-              noSuchWordError={noSuchWordError}
-              setNoSuchWordError={setNoSuchWordError}
+              noSuchWordError={props.noSuchWordError}
+              setNoSuchWordError={props.setNoSuchWordError}
             />
           }
         ></Route>

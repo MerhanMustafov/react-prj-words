@@ -1,24 +1,13 @@
-import React from 'react'
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 // STYLES
 import './App.scss'
 
-// API
-import { getMeaning } from '../../api/request'
-
-// INTERFACES
-import { Definitions, ImageData } from '../meaning/MeaningInterfaces'
-
 // FUNCTIONS
 import { navInputOnScroll } from './AppFunctions'
 
 // COMPONENTS
-import { Meaning } from '../meaning/Meaning'
-import { Spinner } from '../spinner/Spinner'
-import { NavPartOfSpeech } from '../navPartOfSpeach/NavPartOfSpeech'
-
 import { Home } from '../Home/Home'
 import { Search } from '../Search/Search'
 
@@ -27,23 +16,41 @@ function App() {
 
   const [partOfSpeech, setPartOfSpeech] = useState<string[]>([])
   const [searchLoading, setSearchLoading] = useState<boolean>(false)
+  const [noSuchWordError, setNoSuchWordError] = useState<string>('')
 
   return (
     <div className="App">
+      <Search
+        partOfSpeech={partOfSpeech}
+        noSuchWordError={noSuchWordError}
+        setNoSuchWordError={setNoSuchWordError}
+      />
+
       <Routes>
         <Route
-          path="/*"
-          element={<Search partOfSpeech={partOfSpeech} />}
-        ></Route>
-
-        <Route
-          path="/home/*"
+          path="/"
           element={
             <Home
               partOfSpeech={partOfSpeech}
               setPartOfSpeech={setPartOfSpeech}
               searchLoading={searchLoading}
               setSearchLoading={setSearchLoading}
+              noSuchWordError={noSuchWordError}
+              setNoSuchWordError={setNoSuchWordError}
+            />
+          }
+        ></Route>
+
+        <Route
+          path={'/home/*'}
+          element={
+            <Home
+              partOfSpeech={partOfSpeech}
+              setPartOfSpeech={setPartOfSpeech}
+              searchLoading={searchLoading}
+              setSearchLoading={setSearchLoading}
+              noSuchWordError={noSuchWordError}
+              setNoSuchWordError={setNoSuchWordError}
             />
           }
         ></Route>

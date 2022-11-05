@@ -23,8 +23,6 @@ function Meaning(props: Props) {
                 key={key++}
                 partOfSpeech={partOfSpeachSection}
                 definitions={props.definitions}
-                // audio={props.definitions.audio}
-                // phonetic={props.definitions.phonetic}
                 word={props.word}
                 meaningImages={props.meaningImages}
                 setMeaningImages={props.setMeaningImages}
