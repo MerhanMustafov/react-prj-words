@@ -1,7 +1,6 @@
 .p-of-s-nav-w {
   display: flex;
   flex-direction: row;
-  // padding: 0px;
   position: fixed;
   order: 5;
   bottom: 2px;
@@ -9,13 +8,10 @@
   transform: translateX(50%);
   background: rgb(0, 0, 0);
   padding: 0 0 10px 0;
-  // background:transparent;
   overflow-x: auto;
   overscroll-behavior: contain;
   max-width: 350px;
-//   border: 3px solid rgb(255, 0, 0);
   z-index: 111;
-  // height: 50px;
   .ppp {
     font-family: 'Courier New', Courier, monospace;
     display: inline-block;
@@ -36,8 +32,8 @@
     cursor: pointer;
   }
 
-  .active{
-     background: rgba(253, 253, 253);
+  .active {
+    background: rgba(253, 253, 253);
     color: rgb(0, 0, 0);
     color: rgb(120, 0, 120);
   }
@@ -50,6 +46,3 @@
   border-radius: 20px;
   background: rgb(121, 121, 121);
 }
-// .p-of-s-nav-w:hover{
-//     opacity: 1;
-// }

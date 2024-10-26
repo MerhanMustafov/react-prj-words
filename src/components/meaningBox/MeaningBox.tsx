@@ -1,11 +1,6 @@
 import { useState } from 'react'
-// API
 import { getImagesFromWord } from '../../api/pixabayApi'
-
-// COMPONENTS
 import { ImageArea } from '../meaningImageArea/MeaningImageArea'
-
-// INTERFACES
 import { ImageData } from '../meaning/MeaningInterfaces'
 
 interface Props {
@@ -27,18 +22,17 @@ function MeaningBox(props: Props) {
 
   async function reaload() {
     setLoadingImages(true)
-      try {
-        const res = await getImagesFromWord(props.word)
-        if (res.hits.length > 0) {
-          props.setMeaningImages(res.hits)
-        }
-      } catch (err) {
-        props.setMeaningImages([])
+    try {
+      const res = await getImagesFromWord(props.word)
+      if (res.hits.length > 0) {
+        props.setMeaningImages(res.hits)
       }
-      setTimeout(() => {
-        setLoadingImages(false)
-
-      }, 2000)
+    } catch (err) {
+      props.setMeaningImages([])
+    }
+    setTimeout(() => {
+      setLoadingImages(false)
+    }, 2000)
   }
 
   async function getImages(e: React.MouseEvent) {
@@ -59,9 +53,8 @@ function MeaningBox(props: Props) {
       }
     }
     setTimeout(() => {
-        setLoadingImages(false)
-
-      }, 2000)
+      setLoadingImages(false)
+    }, 2000)
   }
 
   return (

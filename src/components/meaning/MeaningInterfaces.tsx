@@ -1,21 +1,69 @@
 export interface Definitions {
-  noun: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  pronoun: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  verb: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  adjective: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  adverb: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  preposition: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  conjunction: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
-  interjection: {d: string[], m?: string[], s?: string[], a?: string[], ex?: string[]}
+  noun: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  pronoun: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  verb: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  adjective: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  adverb: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  preposition: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  conjunction: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
+  interjection: {
+    d: string[]
+    m?: string[]
+    s?: string[]
+    a?: string[]
+    ex?: string[]
+  }
 
-  phonetic:  string[] 
-  audio: string[] 
+  phonetic: string[]
+  audio: string[]
 }
 
 interface Phonetics {
-    text: string
-    audio: string
-    // sourceUrl: "https://commons.wikimedia.org/w/index.php?curid=333689"
+  text: string
+  audio: string
+  // sourceUrl: "https://commons.wikimedia.org/w/index.php?curid=333689"
 }
 
 export interface ImageData {
@@ -42,4 +90,3 @@ export interface ImageData {
   webformatURL: string
   webformatWidth: number
 }
-

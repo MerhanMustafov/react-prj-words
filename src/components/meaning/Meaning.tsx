@@ -1,7 +1,5 @@
 // INTERFACES
 import { Definitions, ImageData } from './MeaningInterfaces'
-
-// COMPONENTS
 import { MeaningSection } from '../meaningSection/MeaningSection'
 
 interface Props {

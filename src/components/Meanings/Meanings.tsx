@@ -1,4 +1,4 @@
-import { Spinner } from '../spinner/Spinner'
+import { Spinner } from '../Spinner/Spinner'
 import { Meaning } from '../meaning/Meaning'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -144,11 +144,7 @@ export function Meanings(props: Props) {
           setWordSecondary(word)
           setMeaningImages([])
           setLoading(false)
-          document.title = "meaning" + "-" + word
-
-          // setTimeout(() => {
-          //   setLoading(false)
-          // }, 1000)
+          document.title = 'meaning' + '-' + word
         } catch (err) {
           props.setNoSuchWordError('There is no such word !')
           document.title = 'no such word'
@@ -156,9 +152,6 @@ export function Meanings(props: Props) {
           setDefinitions(undefined)
           setMeaningImages([])
           setLoading(false)
-          // setTimeout(() => {
-          //   setLoading(false)
-          // }, 1000)
         }
       }
     }

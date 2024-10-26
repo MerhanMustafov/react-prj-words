@@ -1,24 +1,22 @@
-.spinner-w{
-    font-size: 22px;
-    color: white;
-    // border: 5px solid white;
-    display: block;
-    width: fit-content;
-    margin: 0 auto;
-    border-radius: 100%;
-    // padding: 30px;
-
-    animation-name: loading;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-
-    // overflow: hidden;
-    font-size: 50px;
+.spinner-w {
+  font-size: 22px;
+  color: white;
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 100%;
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-size: 50px;
 }
 
 @keyframes loading {
-    0%{font-size: 20px;}
-    100%{font-size: 70px;}
-    
+  0% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 70px;
+  }
 }

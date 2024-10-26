@@ -1,14 +1,6 @@
-import React from 'react'
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-// STYLES
 import '../app/App.scss'
-
-// FUNCTIONS
 import { navInputOnScroll } from '../app/AppFunctions'
-
-// COMPONENTS
 import { Meanings } from '../Meanings/Meanings'
 
 interface Props {
@@ -23,10 +15,8 @@ interface Props {
 function Home(props: Props) {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
 
-
   return (
     <div className="Home">
-     
       <Routes>
         <Route
           path="/meaning/:word"

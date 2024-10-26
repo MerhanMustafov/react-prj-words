@@ -1,12 +1,6 @@
 .imgs-outer-wrapper {
   #pixabay-link {
-    // border: 2px solid red;
-    // display: ;
-      padding: 0px 3px 0px 5px ;
-    //   animation-name: pixaBay;
-    //   animation-duration: 2s;
-    //   animation-iteration-count: infinite;
-    //   animation-direction: alternate;
+    padding: 0px 3px 0px 5px;
     #img-pixabay-logo {
       margin-top: 5px;
       width: 80px;
@@ -14,51 +8,40 @@
       // border: 2px solid green;
       cursor: pointer;
     }
-
   }
-//   @keyframes pixaBay {
-//     0%{background: rgba(120, 0, 120, 0.0);}
-//     100%{background: rgb(120, 0, 120, 0.2);}
-//   }
-//   @keyframes pixaBay {
-//     0%{border: 1px solid rgba(120, 0, 120, 0.0); border-bottom: none;}
-//     100%{border: 1px solid rgb(120, 0, 120); border-bottom: none;}
-//   }
   .images-w {
     display: flex;
     overflow: auto;
     overscroll-behavior: contain;
-    // border-left: 3px solid  rgb(120, 0, 120);
-    // border-right: 3px solid rgb(120, 0, 120);
     width: 93%;
     margin: 5px auto 0 10px;
     height: 350px;
     min-width: 200px;
-    .images-loading{
-        // border: 2px solid red;
-        align-self: center;
-        margin: 0 auto;
-        animation-name: imagesLoading;
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
+    .images-loading {
+      align-self: center;
+      margin: 0 auto;
+      animation-name: imagesLoading;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
     }
     @keyframes imagesLoading {
-        0%{
-            font-size: 20px;
-        }
-        100%{font-size: 40px;}
+      0% {
+        font-size: 20px;
+      }
+      100% {
+        font-size: 40px;
+      }
     }
-    .no-images-wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto; 
-        .no-images {
+    .no-images-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      .no-images {
         font-family: 'Courier New', Courier, monospace;
-        }
-
+      }
     }
     .show {
       display: block;
@@ -69,8 +52,6 @@
     img {
       width: 390px;
       padding: 3px;
-      //   margin: 0px 0 15px 0;
-      //   height: 200px;
     }
   }
   .images-w::-webkit-scrollbar {
@@ -82,16 +63,14 @@
   }
   @media screen and (max-width: 600px) {
     #pixabay-link {
-      padding: 0px 3px 0px 5px ;
-    #img-pixabay-logo {
-      margin-top: 5px;
-      width: 55px;
-      height: 10px;
-      // border: 2px solid green;
-      cursor: pointer;
+      padding: 0px 3px 0px 5px;
+      #img-pixabay-logo {
+        margin-top: 5px;
+        width: 55px;
+        height: 10px;
+        cursor: pointer;
+      }
     }
-
-  }
     .images-w {
       margin: 0 auto;
       width: 95%;
