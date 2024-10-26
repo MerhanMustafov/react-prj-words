@@ -1,15 +1,9 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-
-// STYLES
-import './App.scss'
-
-// FUNCTIONS
 import { navInputOnScroll } from './AppFunctions'
-
-// COMPONENTS
 import { Home } from '../Home/Home'
 import { Search } from '../Search/Search'
+import './App.scss'
 
 function App() {
   window.addEventListener('scroll', (e) => navInputOnScroll(e))
